@@ -1,4 +1,0 @@
-/Users/abraralishah/Library/Android/sdk/cmake/3.22.1/bin/ninja \
-  -C \
-  /Users/abraralishah/Downloads/ncnn-android/app/.cxx/Debug/1r5f5p3z/armeabi-v7a \
-  ncnnyolov7
