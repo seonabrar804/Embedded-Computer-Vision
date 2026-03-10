@@ -1,0 +1,86 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.tencent.ncnnyolov7" >
+4
+5    <uses-sdk
+6        android:minSdkVersion="24"
+7        android:targetSdkVersion="33" />
+8
+9    <uses-permission android:name="android.permission.CAMERA" />
+9-->/Users/abraralishah/Downloads/ncnn-android/app/src/main/AndroidManifest.xml:5:5-65
+9-->/Users/abraralishah/Downloads/ncnn-android/app/src/main/AndroidManifest.xml:5:22-62
+10
+11    <permission
+11-->[androidx.core:core:1.9.0] /Users/abraralishah/.gradle/caches/8.12/transforms/92a47f91e620757dd0f39bddf5dbbdf8/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
+12        android:name="com.tencent.ncnnyolov7.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+12-->[androidx.core:core:1.9.0] /Users/abraralishah/.gradle/caches/8.12/transforms/92a47f91e620757dd0f39bddf5dbbdf8/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
+13        android:protectionLevel="signature" />
+13-->[androidx.core:core:1.9.0] /Users/abraralishah/.gradle/caches/8.12/transforms/92a47f91e620757dd0f39bddf5dbbdf8/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
+14
+15    <uses-permission android:name="com.tencent.ncnnyolov7.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+15-->[androidx.core:core:1.9.0] /Users/abraralishah/.gradle/caches/8.12/transforms/92a47f91e620757dd0f39bddf5dbbdf8/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
+15-->[androidx.core:core:1.9.0] /Users/abraralishah/.gradle/caches/8.12/transforms/92a47f91e620757dd0f39bddf5dbbdf8/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
+16
+17    <application
+17-->/Users/abraralishah/Downloads/ncnn-android/app/src/main/AndroidManifest.xml:7:5-24:19
+18        android:allowBackup="true"
+18-->/Users/abraralishah/Downloads/ncnn-android/app/src/main/AndroidManifest.xml:8:9-35
+19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+19-->[androidx.core:core:1.9.0] /Users/abraralishah/.gradle/caches/8.12/transforms/92a47f91e620757dd0f39bddf5dbbdf8/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
+20        android:debuggable="true"
+21        android:extractNativeLibs="true"
+22        android:label="@string/app_name"
+22-->/Users/abraralishah/Downloads/ncnn-android/app/src/main/AndroidManifest.xml:9:9-41
+23        android:supportsRtl="true"
+23-->/Users/abraralishah/Downloads/ncnn-android/app/src/main/AndroidManifest.xml:11:9-35
+24        android:testOnly="true"
+25        android:theme="@style/AppTheme" >
+25-->/Users/abraralishah/Downloads/ncnn-android/app/src/main/AndroidManifest.xml:10:9-40
+26        <activity
+26-->/Users/abraralishah/Downloads/ncnn-android/app/src/main/AndroidManifest.xml:13:9-23:20
+27            android:name="com.tencent.ncnnyolov7.MainActivity"
+27-->/Users/abraralishah/Downloads/ncnn-android/app/src/main/AndroidManifest.xml:14:13-41
+28            android:configChanges="orientation|screenSize|keyboardHidden"
+28-->/Users/abraralishah/Downloads/ncnn-android/app/src/main/AndroidManifest.xml:15:13-74
+29            android:exported="true"
+29-->/Users/abraralishah/Downloads/ncnn-android/app/src/main/AndroidManifest.xml:17:13-36
+30            android:label="@string/app_name"
+30-->/Users/abraralishah/Downloads/ncnn-android/app/src/main/AndroidManifest.xml:18:13-45
+31            android:screenOrientation="portrait" >
+31-->/Users/abraralishah/Downloads/ncnn-android/app/src/main/AndroidManifest.xml:16:13-49
+32            <intent-filter>
+32-->/Users/abraralishah/Downloads/ncnn-android/app/src/main/AndroidManifest.xml:19:13-22:29
+33                <action android:name="android.intent.action.MAIN" />
+33-->/Users/abraralishah/Downloads/ncnn-android/app/src/main/AndroidManifest.xml:20:17-69
+33-->/Users/abraralishah/Downloads/ncnn-android/app/src/main/AndroidManifest.xml:20:25-66
+34
+35                <category android:name="android.intent.category.LAUNCHER" />
+35-->/Users/abraralishah/Downloads/ncnn-android/app/src/main/AndroidManifest.xml:21:17-77
+35-->/Users/abraralishah/Downloads/ncnn-android/app/src/main/AndroidManifest.xml:21:27-74
+36            </intent-filter>
+37        </activity>
+38
+39        <provider
+39-->[androidx.emoji2:emoji2:1.2.0] /Users/abraralishah/.gradle/caches/8.12/transforms/80b2e4447a72cf54f345611e7f20c8e3/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+40            android:name="androidx.startup.InitializationProvider"
+40-->[androidx.emoji2:emoji2:1.2.0] /Users/abraralishah/.gradle/caches/8.12/transforms/80b2e4447a72cf54f345611e7f20c8e3/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
+41            android:authorities="com.tencent.ncnnyolov7.androidx-startup"
+41-->[androidx.emoji2:emoji2:1.2.0] /Users/abraralishah/.gradle/caches/8.12/transforms/80b2e4447a72cf54f345611e7f20c8e3/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
+42            android:exported="false" >
+42-->[androidx.emoji2:emoji2:1.2.0] /Users/abraralishah/.gradle/caches/8.12/transforms/80b2e4447a72cf54f345611e7f20c8e3/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
+43            <meta-data
+43-->[androidx.emoji2:emoji2:1.2.0] /Users/abraralishah/.gradle/caches/8.12/transforms/80b2e4447a72cf54f345611e7f20c8e3/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+44                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+44-->[androidx.emoji2:emoji2:1.2.0] /Users/abraralishah/.gradle/caches/8.12/transforms/80b2e4447a72cf54f345611e7f20c8e3/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
+45                android:value="androidx.startup" />
+45-->[androidx.emoji2:emoji2:1.2.0] /Users/abraralishah/.gradle/caches/8.12/transforms/80b2e4447a72cf54f345611e7f20c8e3/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
+46            <meta-data
+46-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/abraralishah/.gradle/caches/8.12/transforms/30dfb51717db6e202f5cfa4e6aa527dc/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+47                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+47-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/abraralishah/.gradle/caches/8.12/transforms/30dfb51717db6e202f5cfa4e6aa527dc/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
+48                android:value="androidx.startup" />
+48-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/abraralishah/.gradle/caches/8.12/transforms/30dfb51717db6e202f5cfa4e6aa527dc/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+49        </provider>
+50    </application>
+51
+52</manifest>
