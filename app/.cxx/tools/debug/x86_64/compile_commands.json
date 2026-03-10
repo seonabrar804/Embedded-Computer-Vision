@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/Users/abraralishah/Downloads/ncnn-android/app/.cxx/Debug/1r5f5p3z/x86_64",
+  "command": "/Users/abraralishah/Library/Android/sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=x86_64-none-linux-android24 --sysroot=/Users/abraralishah/Library/Android/sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dncnnyolov7_EXPORTS -isystem /Users/abraralishah/Downloads/ncnn-android/app/src/main/jni/ncnn-20260113-android-vulkan/x86_64/include/ncnn -isystem /Users/abraralishah/Downloads/ncnn-android/app/src/main/jni/opencv-mobile-4.13.0-android/sdk/native/jni/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fno-limit-debug-info  -fPIC -fno-rtti -fno-exceptions -pthread -o CMakeFiles/ncnnyolov7.dir/yoloncnn.cpp.o -c /Users/abraralishah/Downloads/ncnn-android/app/src/main/jni/yoloncnn.cpp",
+  "file": "/Users/abraralishah/Downloads/ncnn-android/app/src/main/jni/yoloncnn.cpp"
+},
+{
+  "directory": "/Users/abraralishah/Downloads/ncnn-android/app/.cxx/Debug/1r5f5p3z/x86_64",
+  "command": "/Users/abraralishah/Library/Android/sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=x86_64-none-linux-android24 --sysroot=/Users/abraralishah/Library/Android/sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dncnnyolov7_EXPORTS -isystem /Users/abraralishah/Downloads/ncnn-android/app/src/main/jni/ncnn-20260113-android-vulkan/x86_64/include/ncnn -isystem /Users/abraralishah/Downloads/ncnn-android/app/src/main/jni/opencv-mobile-4.13.0-android/sdk/native/jni/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fno-limit-debug-info  -fPIC -fno-rtti -fno-exceptions -pthread -o CMakeFiles/ncnnyolov7.dir/yolo.cpp.o -c /Users/abraralishah/Downloads/ncnn-android/app/src/main/jni/yolo.cpp",
+  "file": "/Users/abraralishah/Downloads/ncnn-android/app/src/main/jni/yolo.cpp"
+},
+{
+  "directory": "/Users/abraralishah/Downloads/ncnn-android/app/.cxx/Debug/1r5f5p3z/x86_64",
+  "command": "/Users/abraralishah/Library/Android/sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=x86_64-none-linux-android24 --sysroot=/Users/abraralishah/Library/Android/sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -Dncnnyolov7_EXPORTS -isystem /Users/abraralishah/Downloads/ncnn-android/app/src/main/jni/ncnn-20260113-android-vulkan/x86_64/include/ncnn -isystem /Users/abraralishah/Downloads/ncnn-android/app/src/main/jni/opencv-mobile-4.13.0-android/sdk/native/jni/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fno-limit-debug-info  -fPIC -fno-rtti -fno-exceptions -pthread -o CMakeFiles/ncnnyolov7.dir/ndkcamera.cpp.o -c /Users/abraralishah/Downloads/ncnn-android/app/src/main/jni/ndkcamera.cpp",
+  "file": "/Users/abraralishah/Downloads/ncnn-android/app/src/main/jni/ndkcamera.cpp"
+}
+]

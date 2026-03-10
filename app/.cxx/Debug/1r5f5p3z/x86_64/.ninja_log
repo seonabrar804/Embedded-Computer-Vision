@@ -1,0 +1,17 @@
+# ninja log v5
+1	381	1772984898173276451	CMakeFiles/yoloncnn.dir/yolo.cpp.o	cdc4d2877128eb3a
+381	532	1772984898305512391	/Users/abraralishah/Downloads/ncnn-android/app/build/intermediates/cxx/Debug/1r5f5p3z/obj/x86_64/libyoloncnn.so	b16b672400eec933
+0	362	1772984898155096692	CMakeFiles/yoloncnn.dir/scrfdncnn.cpp.o	c2680e75f31abb99
+1	342	1772984898134835557	CMakeFiles/yoloncnn.dir/ndkcamera.cpp.o	c34d15a9a50752de
+0	485	1772990949741391493	CMakeFiles/ncnnyolov7.dir/yoloncnn.cpp.o	6e0c8798d400ff2b
+0	549	1772990949807065558	CMakeFiles/ncnnyolov7.dir/yolo.cpp.o	483ffddacbf9429f
+0	9	0	clean	4615e5ec3b97e3d9
+2	377	1772991646180123585	CMakeFiles/ncnnyolov7.dir/ndkcamera.cpp.o	d2c1d81addfc4faf
+1	386	1772991646188726260	CMakeFiles/ncnnyolov7.dir/yoloncnn.cpp.o	6e0c8798d400ff2b
+1	413	1772991646216458454	CMakeFiles/ncnnyolov7.dir/yolo.cpp.o	483ffddacbf9429f
+413	588	1772991646373356524	/Users/abraralishah/Downloads/ncnn-android/app/build/intermediates/cxx/Debug/1r5f5p3z/obj/x86_64/libncnnyolov7.so	b9e7857fe198eec7
+0	5	0	clean	4615e5ec3b97e3d9
+3	335	1773005051008962145	CMakeFiles/ncnnyolov7.dir/ndkcamera.cpp.o	d2c1d81addfc4faf
+3	353	1773005051026866077	CMakeFiles/ncnnyolov7.dir/yoloncnn.cpp.o	6e0c8798d400ff2b
+3	378	1773005051052342617	CMakeFiles/ncnnyolov7.dir/yolo.cpp.o	483ffddacbf9429f
+378	544	1773005051200147343	/Users/abraralishah/Downloads/ncnn-android/app/build/intermediates/cxx/Debug/1r5f5p3z/obj/x86_64/libncnnyolov7.so	b9e7857fe198eec7
