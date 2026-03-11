@@ -1,6 +1,4 @@
-# ncnn-android-scrfd
-
-The SCRFD face detection
+# ncnn-android-yolovx
 
 This is a sample ncnn android project, it depends on ncnn library and opencv
 
@@ -35,5 +33,5 @@ https://github.com/nihui/opencv-mobile
 * FPS may be lower in dark environment because of longer camera exposure time
 
 ## screenshot
-![](screenshot.jpg)
+![](screenshot.jpeg)
 
