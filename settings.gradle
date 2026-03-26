@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "scrfdncnn"
+rootProject.name = "yolo11ncnn"
 include ':app'
