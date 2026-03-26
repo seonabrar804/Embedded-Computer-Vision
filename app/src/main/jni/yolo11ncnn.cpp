@@ -176,7 +176,7 @@ JNIEXPORT void JNI_OnUnload(JavaVM* vm, void* reserved)
 // public native boolean loadModel(AssetManager mgr, int taskid, int modelid, int cpugpu);
 JNIEXPORT jboolean JNICALL Java_com_tencent_yolo11ncnn_YOLO11Ncnn_loadModel(JNIEnv* env, jobject thiz, jobject assetManager, jint taskid, jint modelid, jint cpugpu)
 {
-    if (modelid < 0 || modelid > 8 || cpugpu < 0 || cpugpu > 2)
+    if (modelid < 0 || modelid > 2 || cpugpu < 0 || cpugpu > 2)
     {
         return JNI_FALSE;
     }
@@ -185,22 +185,9 @@ JNIEXPORT jboolean JNICALL Java_com_tencent_yolo11ncnn_YOLO11Ncnn_loadModel(JNIE
 
     __android_log_print(ANDROID_LOG_DEBUG, "ncnn", "loadModel %p modelid=%d cpugpu=%d", mgr, modelid, cpugpu);
 
-    const char* modeltypes[9] =
-    {
-        "n",
-        "s",
-        "m",
-        "n",
-        "s",
-        "m",
-        "n",
-        "s",
-        "m"
-    };
-
-    // Only detection models (no task suffix)
-    std::string parampath = std::string("yolo11") + modeltypes[(int)modelid] + ".ncnn.param";
-    std::string modelpath = std::string("yolo11") + modeltypes[(int)modelid] + ".ncnn.bin";
+    // Always use "n" model
+    std::string parampath = "yolo11n.ncnn.param";
+    std::string modelpath = "yolo11n.ncnn.bin";
     bool use_gpu = (int)cpugpu == 1;
     bool use_turnip = (int)cpugpu == 2;
 
@@ -210,13 +197,12 @@ JNIEXPORT jboolean JNICALL Java_com_tencent_yolo11ncnn_YOLO11Ncnn_loadModel(JNIE
     {
         ncnn::MutexLockGuard g(lock);
 
-        static int old_modelid = 0;
         static int old_cpugpu = 0;
         
-        // Check if model or cpugpu changed
-        if ((modelid % 3) != old_modelid || cpugpu != old_cpugpu)
+        // Check if cpugpu changed
+        if (cpugpu != old_cpugpu)
         {
-            __android_log_print(ANDROID_LOG_DEBUG, "ncnn", "Model changed, reloading...");
+            __android_log_print(ANDROID_LOG_DEBUG, "ncnn", "GPU setting changed, reloading...");
             delete g_yolo11;
             g_yolo11 = 0;
             
@@ -232,7 +218,6 @@ JNIEXPORT jboolean JNICALL Java_com_tencent_yolo11ncnn_YOLO11Ncnn_loadModel(JNIE
                 ncnn::create_gpu_instance();
             }
         }
-        old_modelid = modelid % 3;
         old_cpugpu = cpugpu;
 
         if (!g_yolo11)
@@ -248,10 +233,11 @@ JNIEXPORT jboolean JNICALL Java_com_tencent_yolo11ncnn_YOLO11Ncnn_loadModel(JNIE
             }
         }
         
+        // Set target size based on model selection
         int target_size = 320;
-        if ((int)modelid >= 3)
+        if ((int)modelid == 1)
             target_size = 480;
-        if ((int)modelid >= 6)
+        if ((int)modelid == 2)
             target_size = 640;
         g_yolo11->set_det_target_size(target_size);
         __android_log_print(ANDROID_LOG_DEBUG, "ncnn", "Detection model loaded successfully, target_size=%d", target_size);

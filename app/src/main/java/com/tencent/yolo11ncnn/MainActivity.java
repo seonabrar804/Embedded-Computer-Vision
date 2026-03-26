@@ -110,6 +110,7 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback
     private void reload()
     {
         // Task ID is fixed to 0 for detection
+        // Model ID: 0=320, 1=480, 2=640 (all use "n" model)
         boolean ret_init = yolo11ncnn.loadModel(getAssets(), 0, current_model, current_cpugpu);
         if (!ret_init)
         {

@@ -9,6 +9,7 @@ set(ncnn_DIR ${CMAKE_SOURCE_DIR}/ncnn-20260113-android-vulkan/${ANDROID_ABI}/lib
 find_package(ncnn REQUIRED)
 
 
+# Only include detection source files
 add_library(yolo11ncnn SHARED yolo11ncnn.cpp yolo11.cpp yolo11_det.cpp ndkcamera.cpp)
 
 target_link_libraries(yolo11ncnn ncnn ${OpenCV_LIBS} camera2ndk mediandk)

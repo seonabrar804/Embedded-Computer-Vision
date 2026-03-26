@@ -5,14 +5,8 @@
 
     <string-array name="model_array">
         <item>YOLO11n (320)</item>
-        <item>YOLO11s (320)</item>
-        <item>YOLO11m (320)</item>
         <item>YOLO11n (480)</item>
-        <item>YOLO11s (480)</item>
-        <item>YOLO11m (480)</item>
         <item>YOLO11n (640)</item>
-        <item>YOLO11s (640)</item>
-        <item>YOLO11m (640)</item>
     </string-array>
 
     <string-array name="cpugpu_array">
