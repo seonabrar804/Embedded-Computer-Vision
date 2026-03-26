@@ -2,3 +2,7 @@
 *.hprof
 
 app/build/
+
+app/build/
+**/build/
+*.apk
