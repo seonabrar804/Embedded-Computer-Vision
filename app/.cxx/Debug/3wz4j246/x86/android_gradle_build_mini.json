@@ -1,0 +1,40 @@
+{
+  "buildFiles": [
+    "/Users/abraralishah/Documents/ncnn-android-11/app/src/main/jni/CMakeLists.txt",
+    "/Users/abraralishah/Documents/ncnn-android-11/app/src/main/jni/ncnn-20260113-android-vulkan/x86/lib/cmake/glslang/glslang-config-version.cmake",
+    "/Users/abraralishah/Documents/ncnn-android-11/app/src/main/jni/ncnn-20260113-android-vulkan/x86/lib/cmake/glslang/glslang-config.cmake",
+    "/Users/abraralishah/Documents/ncnn-android-11/app/src/main/jni/ncnn-20260113-android-vulkan/x86/lib/cmake/glslang/glslang-targets-release.cmake",
+    "/Users/abraralishah/Documents/ncnn-android-11/app/src/main/jni/ncnn-20260113-android-vulkan/x86/lib/cmake/glslang/glslang-targets.cmake",
+    "/Users/abraralishah/Documents/ncnn-android-11/app/src/main/jni/ncnn-20260113-android-vulkan/x86/lib/cmake/ncnn/ncnn-release.cmake",
+    "/Users/abraralishah/Documents/ncnn-android-11/app/src/main/jni/ncnn-20260113-android-vulkan/x86/lib/cmake/ncnn/ncnn.cmake",
+    "/Users/abraralishah/Documents/ncnn-android-11/app/src/main/jni/ncnn-20260113-android-vulkan/x86/lib/cmake/ncnn/ncnnConfig.cmake",
+    "/Users/abraralishah/Documents/ncnn-android-11/app/src/main/jni/ncnn-20260113-android-vulkan/x86/lib/cmake/ncnn/ncnnConfigVersion.cmake",
+    "/Users/abraralishah/Documents/ncnn-android-11/app/src/main/jni/opencv-mobile-4.13.0-android/sdk/native/jni/OpenCVConfig-version.cmake",
+    "/Users/abraralishah/Documents/ncnn-android-11/app/src/main/jni/opencv-mobile-4.13.0-android/sdk/native/jni/OpenCVConfig.cmake",
+    "/Users/abraralishah/Documents/ncnn-android-11/app/src/main/jni/opencv-mobile-4.13.0-android/sdk/native/jni/abi-x86/OpenCVConfig.cmake",
+    "/Users/abraralishah/Documents/ncnn-android-11/app/src/main/jni/opencv-mobile-4.13.0-android/sdk/native/jni/abi-x86/OpenCVModules-release.cmake",
+    "/Users/abraralishah/Documents/ncnn-android-11/app/src/main/jni/opencv-mobile-4.13.0-android/sdk/native/jni/abi-x86/OpenCVModules.cmake"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Users/abraralishah/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/Users/abraralishah/Documents/ncnn-android-11/app/.cxx/Debug/3wz4j246/x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Users/abraralishah/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/Users/abraralishah/Documents/ncnn-android-11/app/.cxx/Debug/3wz4j246/x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "yolo11ncnn::@6890427a1f51a3e7e1df": {
+      "artifactName": "yolo11ncnn",
+      "abi": "x86",
+      "output": "/Users/abraralishah/Documents/ncnn-android-11/app/build/intermediates/cxx/Debug/3wz4j246/obj/x86/libyolo11ncnn.so",
+      "runtimeFiles": []
+    }
+  }
+}

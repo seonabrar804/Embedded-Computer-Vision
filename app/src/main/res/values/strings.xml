@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">YOLO Crowd Detection</string>
-    <string-array name="model_array">
-        <item>YOLOv8 CrowdHuman</item>
+    <string name="app_name">YOLO11 Detection</string>
+    <string name="switch_camera">Switch Camera</string>
+
+    <string-array name="task_array">
+        <item>Detection</item>
     </string-array>
+
+    <string-array name="model_array">
+        <item>YOLO11n (320)</item>
+        <item>YOLO11s (320)</item>
+        <item>YOLO11m (320)</item>
+        <item>YOLO11n (480)</item>
+        <item>YOLO11s (480)</item>
+        <item>YOLO11m (480)</item>
+        <item>YOLO11n (640)</item>
+        <item>YOLO11s (640)</item>
+        <item>YOLO11m (640)</item>
+    </string-array>
+
     <string-array name="cpugpu_array">
         <item>CPU</item>
         <item>GPU</item>
+        <item>Turnip</item>
     </string-array>
 </resources>

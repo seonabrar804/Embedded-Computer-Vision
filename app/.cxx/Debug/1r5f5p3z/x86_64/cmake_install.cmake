@@ -1,4 +1,4 @@
-# Install script for directory: /Users/abraralishah/Downloads/ncnn-android/app/src/main/jni
+# Install script for directory: /Users/abraralishah/Documents/ncnn-android-11/app/src/main/jni
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/abraralishah/Downloads/ncnn-android/app/.cxx/Debug/1r5f5p3z/x86_64/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/abraralishah/Documents/ncnn-android-11/app/.cxx/Debug/1r5f5p3z/x86_64/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

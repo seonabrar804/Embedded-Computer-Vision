@@ -3,12 +3,12 @@ plugins {
 }
 
 android {
-    namespace 'com.tencent.ncnnyolov7'
+    namespace 'com.tencent.yolo11ncnn'
     compileSdk 33
     ndkVersion "29.0.14206865"
 
     defaultConfig {
-        applicationId "com.tencent.ncnnyolov7"
+        applicationId "com.tencent.yolo11ncnn"
         minSdkVersion 24
         targetSdkVersion 33
 

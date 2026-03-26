@@ -22,8 +22,6 @@
 
 #include "mat.h"
 
-#include <inttypes.h>
-
 static void onDisconnected(void* context, ACameraDevice* device)
 {
     __android_log_print(ANDROID_LOG_WARN, "NdkCamera", "onDisconnected %p", device);
@@ -151,7 +149,7 @@ void onCaptureFailed(void* context, ACameraCaptureSession* session, ACaptureRequ
 
 void onCaptureSequenceCompleted(void* context, ACameraCaptureSession* session, int sequenceId, int64_t frameNumber)
 {
-    __android_log_print(ANDROID_LOG_WARN, "NdkCamera", "onCaptureSequenceCompleted %p %d %" PRId64, session, sequenceId, frameNumber);
+    __android_log_print(ANDROID_LOG_WARN, "NdkCamera", "onCaptureSequenceCompleted %p %d %ld", session, sequenceId, frameNumber);
 }
 
 void onCaptureSequenceAborted(void* context, ACameraCaptureSession* session, int sequenceId)

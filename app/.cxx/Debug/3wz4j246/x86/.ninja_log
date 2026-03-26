@@ -1,0 +1,14 @@
+# ninja log v5
+0	561	1774332784485377711	CMakeFiles/yolo11ncnn.dir/yolo11.cpp.o	46f08eb66388fd72
+2	564	1774332784491278184	CMakeFiles/yolo11ncnn.dir/ndkcamera.cpp.o	71aee50e453ccbac
+0	571	1774332784493989107	CMakeFiles/yolo11ncnn.dir/yolo11ncnn.cpp.o	49135d8bf027989
+1	615	1774332784540310307	CMakeFiles/yolo11ncnn.dir/yolo11_seg.cpp.o	e2b8091dde983a8b
+1	617	1774332784544016941	CMakeFiles/yolo11ncnn.dir/yolo11_cls.cpp.o	4637cb4c323f9ada
+1	627	1774332784553516673	CMakeFiles/yolo11ncnn.dir/yolo11_det.cpp.o	51aaf5c62d9e63b2
+1	628	1774332784554685718	CMakeFiles/yolo11ncnn.dir/yolo11_obb.cpp.o	f93dd027d5b3c3f1
+1	638	1774332784565466578	CMakeFiles/yolo11ncnn.dir/yolo11_pose.cpp.o	ae8ac04532a1b790
+639	780	1774332784692988689	/Users/abraralishah/Documents/ncnn-android-11/app/build/intermediates/cxx/Debug/3wz4j246/obj/x86/libyolo11ncnn.so	738ca9afd1a01bde
+1	335	1774332820622168985	CMakeFiles/yolo11ncnn.dir/ndkcamera.cpp.o	71aee50e453ccbac
+335	494	1774332820754709150	/Users/abraralishah/Documents/ncnn-android-11/app/build/intermediates/cxx/Debug/3wz4j246/obj/x86/libyolo11ncnn.so	738ca9afd1a01bde
+5	387	1774333059768260955	CMakeFiles/yolo11ncnn.dir/ndkcamera.cpp.o	71aee50e453ccbac
+387	573	1774333059913053485	/Users/abraralishah/Documents/ncnn-android-11/app/build/intermediates/cxx/Debug/3wz4j246/obj/x86/libyolo11ncnn.so	738ca9afd1a01bde

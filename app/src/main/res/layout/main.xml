@@ -16,23 +16,34 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Switch Camera"
+            android:text="@string/switch_camera"
             android:layout_marginEnd="8dp" />
+
+        <Spinner
+            android:id="@+id/spinnerTask"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:entries="@array/task_array"
+            android:minHeight="48dp" />
 
         <Spinner
             android:id="@+id/spinnerModel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
             android:layout_weight="1"
             android:entries="@array/model_array"
-            android:layout_marginEnd="8dp" />
+            android:minHeight="48dp" />
 
         <Spinner
             android:id="@+id/spinnerCPUGPU"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:entries="@array/cpugpu_array" />
+            android:entries="@array/cpugpu_array"
+            android:minHeight="48dp" />
 
     </LinearLayout>
 
