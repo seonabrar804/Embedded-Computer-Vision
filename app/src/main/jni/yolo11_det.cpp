@@ -399,70 +399,43 @@ int YOLO11_det::detect(const cv::Mat& rgb, std::vector<Object>& objects)
 
 int YOLO11_det::draw(cv::Mat& rgb, const std::vector<Object>& objects)
 {
+    // For crowd human detection, we only have one class - person
     static const char* class_names[] = {
-        "person", "bicycle", "car", "motorcycle", "airplane", "bus", "train", "truck", "boat", "traffic light",
-        "fire hydrant", "stop sign", "parking meter", "bench", "bird", "cat", "dog", "horse", "sheep", "cow",
-        "elephant", "bear", "zebra", "giraffe", "backpack", "umbrella", "handbag", "tie", "suitcase", "frisbee",
-        "skis", "snowboard", "sports ball", "kite", "baseball bat", "baseball glove", "skateboard", "surfboard",
-        "tennis racket", "bottle", "wine glass", "cup", "fork", "knife", "spoon", "bowl", "banana", "apple",
-        "sandwich", "orange", "broccoli", "carrot", "hot dog", "pizza", "donut", "cake", "chair", "couch",
-        "potted plant", "bed", "dining table", "toilet", "tv", "laptop", "mouse", "remote", "keyboard", "cell phone",
-        "microwave", "oven", "toaster", "sink", "refrigerator", "book", "clock", "vase", "scissors", "teddy bear",
-        "hair drier", "toothbrush"
+        "person"
     };
-
-    static cv::Scalar colors[] = {
-        cv::Scalar( 67,  54, 244),
-        cv::Scalar( 30,  99, 233),
-        cv::Scalar( 39, 176, 156),
-        cv::Scalar( 58, 183, 103),
-        cv::Scalar( 81, 181,  63),
-        cv::Scalar(150, 243,  33),
-        cv::Scalar(169, 244,   3),
-        cv::Scalar(188, 212,   0),
-        cv::Scalar(150, 136,   0),
-        cv::Scalar(175,  80,  76),
-        cv::Scalar(195,  74, 139),
-        cv::Scalar(220,  57, 205),
-        cv::Scalar(235,  59, 255),
-        cv::Scalar(193,   7, 255),
-        cv::Scalar(152,   0, 255),
-        cv::Scalar( 87,  34, 255),
-        cv::Scalar( 85,  72, 121),
-        cv::Scalar(158, 158, 158),
-        cv::Scalar(125, 139,  96)
-    };
-
+    
+    // Use a single color for all detections
+    static cv::Scalar color = cv::Scalar(0, 255, 0); // Green color for people
+    
     for (size_t i = 0; i < objects.size(); i++)
     {
         const Object& obj = objects[i];
-
-        const cv::Scalar& color = colors[i % 19];
-
-        // fprintf(stderr, "%d = %.5f at %.2f %.2f %.2f x %.2f\n", obj.label, obj.prob,
-                // obj.rect.x, obj.rect.y, obj.rect.width, obj.rect.height);
-
-        cv::rectangle(rgb, obj.rect, color);
-
+        
+        // Draw bounding box
+        cv::rectangle(rgb, obj.rect, color, 2);
+        
+        // Draw label with confidence
         char text[256];
-        sprintf(text, "%s %.1f%%", class_names[obj.label], obj.prob * 100);
-
+        sprintf(text, "person %.1f%%", obj.prob * 100);
+        
         int baseLine = 0;
         cv::Size label_size = cv::getTextSize(text, cv::FONT_HERSHEY_SIMPLEX, 0.5, 1, &baseLine);
-
+        
         int x = obj.rect.x;
         int y = obj.rect.y - label_size.height - baseLine;
         if (y < 0)
             y = 0;
         if (x + label_size.width > rgb.cols)
             x = rgb.cols - label_size.width;
-
+        
+        // Draw background for text
         cv::rectangle(rgb, cv::Rect(cv::Point(x, y), cv::Size(label_size.width, label_size.height + baseLine)),
                       cv::Scalar(255, 255, 255), -1);
-
+        
+        // Draw text
         cv::putText(rgb, text, cv::Point(x, y + label_size.height),
                     cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(0, 0, 0));
     }
-
+    
     return 0;
 }

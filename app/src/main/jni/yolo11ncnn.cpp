@@ -121,7 +121,7 @@ public:
 
 void MyNdkCamera::on_image_render(cv::Mat& rgb) const
 {
-    // yolo11 detection
+    // Crowd human detection
     {
         ncnn::MutexLockGuard g(lock);
 
@@ -185,13 +185,13 @@ JNIEXPORT jboolean JNICALL Java_com_tencent_yolo11ncnn_YOLO11Ncnn_loadModel(JNIE
 
     __android_log_print(ANDROID_LOG_DEBUG, "ncnn", "loadModel %p modelid=%d cpugpu=%d", mgr, modelid, cpugpu);
 
-    // Always use "n" model
-    std::string parampath = "yolo11n.ncnn.param";
-    std::string modelpath = "yolo11n.ncnn.bin";
+    // Use crowd detection model
+    std::string parampath = "yolo11n_crowd.ncnn.param";
+    std::string modelpath = "yolo11n_crowd.ncnn.bin";
     bool use_gpu = (int)cpugpu == 1;
     bool use_turnip = (int)cpugpu == 2;
 
-    __android_log_print(ANDROID_LOG_DEBUG, "ncnn", "loading detection model: %s, %s", parampath.c_str(), modelpath.c_str());
+    __android_log_print(ANDROID_LOG_DEBUG, "ncnn", "loading crowd detection model: %s, %s", parampath.c_str(), modelpath.c_str());
 
     // reload
     {
@@ -222,25 +222,25 @@ JNIEXPORT jboolean JNICALL Java_com_tencent_yolo11ncnn_YOLO11Ncnn_loadModel(JNIE
 
         if (!g_yolo11)
         {
-            __android_log_print(ANDROID_LOG_DEBUG, "ncnn", "Creating YOLO11 detection instance");
+            __android_log_print(ANDROID_LOG_DEBUG, "ncnn", "Creating crowd detection instance");
             g_yolo11 = new YOLO11_det;
 
             int ret = g_yolo11->load(mgr, parampath.c_str(), modelpath.c_str(), use_gpu || use_turnip);
             if (ret != 0)
             {
-                __android_log_print(ANDROID_LOG_ERROR, "ncnn", "Failed to load detection model");
+                __android_log_print(ANDROID_LOG_ERROR, "ncnn", "Failed to load crowd detection model");
                 return JNI_FALSE;
             }
         }
         
-        // Set target size based on model selection
+        // Set target size based on model selection (320, 480, or 640)
         int target_size = 320;
         if ((int)modelid == 1)
             target_size = 480;
         if ((int)modelid == 2)
             target_size = 640;
         g_yolo11->set_det_target_size(target_size);
-        __android_log_print(ANDROID_LOG_DEBUG, "ncnn", "Detection model loaded successfully, target_size=%d", target_size);
+        __android_log_print(ANDROID_LOG_DEBUG, "ncnn", "Crowd detection model loaded successfully, target_size=%d", target_size);
     }
 
     return JNI_TRUE;
