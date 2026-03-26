@@ -3,10 +3,6 @@
     <string name="app_name">YOLO11 Detection</string>
     <string name="switch_camera">Switch Camera</string>
 
-    <string-array name="task_array">
-        <item>Detection</item>
-    </string-array>
-
     <string-array name="model_array">
         <item>YOLO11n (320)</item>
         <item>YOLO11s (320)</item>

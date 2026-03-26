@@ -20,15 +20,6 @@
             android:layout_marginEnd="8dp" />
 
         <Spinner
-            android:id="@+id/spinnerTask"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_weight="1"
-            android:entries="@array/task_array"
-            android:minHeight="48dp" />
-
-        <Spinner
             android:id="@+id/spinnerModel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

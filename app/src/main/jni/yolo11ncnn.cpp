@@ -110,7 +110,7 @@ static int draw_fps(cv::Mat& rgb)
     return 0;
 }
 
-static YOLO11* g_yolo11 = 0;
+static YOLO11_det* g_yolo11 = 0;
 static ncnn::Mutex lock;
 
 class MyNdkCamera : public NdkCameraWindow
@@ -121,7 +121,7 @@ public:
 
 void MyNdkCamera::on_image_render(cv::Mat& rgb) const
 {
-    // yolo11
+    // yolo11 detection
     {
         ncnn::MutexLockGuard g(lock);
 
@@ -176,23 +176,14 @@ JNIEXPORT void JNI_OnUnload(JavaVM* vm, void* reserved)
 // public native boolean loadModel(AssetManager mgr, int taskid, int modelid, int cpugpu);
 JNIEXPORT jboolean JNICALL Java_com_tencent_yolo11ncnn_YOLO11Ncnn_loadModel(JNIEnv* env, jobject thiz, jobject assetManager, jint taskid, jint modelid, jint cpugpu)
 {
-    if (taskid < 0 || taskid > 4 || modelid < 0 || modelid > 8 || cpugpu < 0 || cpugpu > 2)
+    if (modelid < 0 || modelid > 8 || cpugpu < 0 || cpugpu > 2)
     {
         return JNI_FALSE;
     }
 
     AAssetManager* mgr = AAssetManager_fromJava(env, assetManager);
 
-    __android_log_print(ANDROID_LOG_DEBUG, "ncnn", "loadModel %p", mgr);
-
-    const char* tasknames[5] =
-    {
-        "",
-        "_seg",
-        "_pose",
-        "_cls",
-        "_obb"
-    };
+    __android_log_print(ANDROID_LOG_DEBUG, "ncnn", "loadModel %p modelid=%d cpugpu=%d", mgr, modelid, cpugpu);
 
     const char* modeltypes[9] =
     {
@@ -207,29 +198,29 @@ JNIEXPORT jboolean JNICALL Java_com_tencent_yolo11ncnn_YOLO11Ncnn_loadModel(JNIE
         "m"
     };
 
-    std::string parampath = std::string("yolo11") + modeltypes[(int)modelid] + tasknames[(int)taskid] + ".ncnn.param";
-    std::string modelpath = std::string("yolo11") + modeltypes[(int)modelid] + tasknames[(int)taskid] + ".ncnn.bin";
+    // Only detection models (no task suffix)
+    std::string parampath = std::string("yolo11") + modeltypes[(int)modelid] + ".ncnn.param";
+    std::string modelpath = std::string("yolo11") + modeltypes[(int)modelid] + ".ncnn.bin";
     bool use_gpu = (int)cpugpu == 1;
     bool use_turnip = (int)cpugpu == 2;
+
+    __android_log_print(ANDROID_LOG_DEBUG, "ncnn", "loading detection model: %s, %s", parampath.c_str(), modelpath.c_str());
 
     // reload
     {
         ncnn::MutexLockGuard g(lock);
 
+        static int old_modelid = 0;
+        static int old_cpugpu = 0;
+        
+        // Check if model or cpugpu changed
+        if ((modelid % 3) != old_modelid || cpugpu != old_cpugpu)
         {
-            static int old_taskid = 0;
-            static int old_modelid = 0;
-            static int old_cpugpu = 0;
-            if (taskid != old_taskid || (modelid % 3) != old_modelid || cpugpu != old_cpugpu)
-            {
-                // taskid or model or cpugpu changed
-                delete g_yolo11;
-                g_yolo11 = 0;
-            }
-            old_taskid = taskid;
-            old_modelid = modelid % 3;
-            old_cpugpu = cpugpu;
-
+            __android_log_print(ANDROID_LOG_DEBUG, "ncnn", "Model changed, reloading...");
+            delete g_yolo11;
+            g_yolo11 = 0;
+            
+            // Reinitialize GPU with appropriate settings
             ncnn::destroy_gpu_instance();
 
             if (use_turnip)
@@ -240,24 +231,30 @@ JNIEXPORT jboolean JNICALL Java_com_tencent_yolo11ncnn_YOLO11Ncnn_loadModel(JNIE
             {
                 ncnn::create_gpu_instance();
             }
-
-            if (!g_yolo11)
-            {
-                if (taskid == 0) g_yolo11 = new YOLO11_det;
-                if (taskid == 1) g_yolo11 = new YOLO11_seg;
-                if (taskid == 2) g_yolo11 = new YOLO11_pose;
-                if (taskid == 3) g_yolo11 = new YOLO11_cls;
-                if (taskid == 4) g_yolo11 = new YOLO11_obb;
-
-                g_yolo11->load(mgr, parampath.c_str(), modelpath.c_str(), use_gpu || use_turnip);
-            }
-            int target_size = 320;
-            if ((int)modelid >= 3)
-                target_size = 480;
-            if ((int)modelid >= 6)
-                target_size = 640;
-            g_yolo11->set_det_target_size(target_size);
         }
+        old_modelid = modelid % 3;
+        old_cpugpu = cpugpu;
+
+        if (!g_yolo11)
+        {
+            __android_log_print(ANDROID_LOG_DEBUG, "ncnn", "Creating YOLO11 detection instance");
+            g_yolo11 = new YOLO11_det;
+
+            int ret = g_yolo11->load(mgr, parampath.c_str(), modelpath.c_str(), use_gpu || use_turnip);
+            if (ret != 0)
+            {
+                __android_log_print(ANDROID_LOG_ERROR, "ncnn", "Failed to load detection model");
+                return JNI_FALSE;
+            }
+        }
+        
+        int target_size = 320;
+        if ((int)modelid >= 3)
+            target_size = 480;
+        if ((int)modelid >= 6)
+            target_size = 640;
+        g_yolo11->set_det_target_size(target_size);
+        __android_log_print(ANDROID_LOG_DEBUG, "ncnn", "Detection model loaded successfully, target_size=%d", target_size);
     }
 
     return JNI_TRUE;
